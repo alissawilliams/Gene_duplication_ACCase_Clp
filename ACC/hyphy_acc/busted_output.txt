@@ -1,0 +1,240 @@
+bash-3.2$ hyphy busted --alignment aligned_ACCase_minimal.aa.fas --tree ACCase_constraint_final_foreback_fixedagain_hyphy.nwk --branches Foreground
+
+Analysis Description
+--------------------
+BUSTED (branch-site unrestricted statistical test of episodic
+diversification) uses a random effects branch-site model fitted jointly
+to all or a subset of tree branches in order to test for alignment-wide
+evidence of episodic diversifying selection. Assuming there is evidence
+of positive selection (i.e. there is an omega > 1), BUSTED will also
+perform a quick evidence-ratio style analysis to explore which
+individual sites may have been subject to selection. v2.0 adds support
+for synonymous rate variation, and relaxes the test statistic to 0.5
+(chi^2_0 + chi^2_2). Version 2.1 adds a grid search for the initial
+starting point. Version 2.2 changes the grid search to LHC, and adds an
+initial search phase to use adaptive Nedler-Mead. Version 3.0 implements
+the option for branch-site variation in synonymous substitution rates 
+
+- __Requirements__: in-frame codon alignment and a phylogenetic tree (optionally annotated
+with {})
+
+- __Citation__: *Gene-wide identification of episodic selection*, Mol Biol Evol.
+32(5):1365-71
+
+- __Written by__: Sergei L Kosakovsky Pond
+
+- __Contact Information__: spond@temple.edu
+
+- __Analysis Version__: 3.0
+
+
+>code –> Universal
+Error:
+Could not find source dataset file "PROMPT_FOR_FILE" (resolved to '/Users/sloan_lab/Documents/labbies/Alissa/hyphy_acc/Foreground')
+Path stack:
+	/Users/sloan_lab/opt/anaconda3/lib/hyphy/
+	/Users/sloan_lab/opt/anaconda3/lib/hyphy/TemplateBatchFiles/SelectionAnalyses/
+
+Function call stack
+1 :  [namespace = jyONBgD_] DataSet ^dataset_name = ReadDataFile(PROMPT_FOR_FILE);
+
+	Keyword arguments:
+		{
+		 "tree":"ACCase_constraint_final_foreback_fixedagain_hyphy.nwk"
+		}
+-------
+2 :  [namespace = _pREIQXI] code_info=alignments.LoadGeneticCode(None);
+-------
+3 :  [namespace = nHhAWwmn] return alignments.ReadCodonDataSetFromPath(dataset_name,None);
+-------
+4 :  return alignments.LoadCodonDataFile(dataset_name,datafilter_name,alignments.ReadCodonDataSet(dataset_name));
+-------
+5 :  [namespace = busted] codon_data_info=alignments.PromptForGeneticCodeAndAlignment(prefix+".codon_data",prefix+".codon_filter");
+-------
+6 :  [namespace = busted] load_file("busted");
+-------
+7 :  namespace 
+
+Step 0.LoadFunctionLibrary("modules/shared-load-file.bf", /Users/sloan_lab/opt/anaconda3/lib/hyphy/TemplateBatchFiles/SelectionAnalyses/);
+
+Step 1.load_file("busted");;
+-------
+
+Check errors.log for execution error details.
+bash-3.2$ pwd
+/Users/sloan_lab/Documents/labbies/Alissa/hyphy_acc
+bash-3.2$ hyphy busted --alignment /Users/sloan_lab/Documents/labbies/Alissa/hyphy_acc/aligned_ACCase_minimal.aa.fas --tree /Users/sloan_lab/Documents/labbies/Alissa/hyphy_acc/ACCase_constraint_final_foreback_fixedagain_hyphy.nwk --branches Foreground
+
+Analysis Description
+--------------------
+BUSTED (branch-site unrestricted statistical test of episodic
+diversification) uses a random effects branch-site model fitted jointly
+to all or a subset of tree branches in order to test for alignment-wide
+evidence of episodic diversifying selection. Assuming there is evidence
+of positive selection (i.e. there is an omega > 1), BUSTED will also
+perform a quick evidence-ratio style analysis to explore which
+individual sites may have been subject to selection. v2.0 adds support
+for synonymous rate variation, and relaxes the test statistic to 0.5
+(chi^2_0 + chi^2_2). Version 2.1 adds a grid search for the initial
+starting point. Version 2.2 changes the grid search to LHC, and adds an
+initial search phase to use adaptive Nedler-Mead. Version 3.0 implements
+the option for branch-site variation in synonymous substitution rates 
+
+- __Requirements__: in-frame codon alignment and a phylogenetic tree (optionally annotated
+with {})
+
+- __Citation__: *Gene-wide identification of episodic selection*, Mol Biol Evol.
+32(5):1365-71
+
+- __Written by__: Sergei L Kosakovsky Pond
+
+- __Contact Information__: spond@temple.edu
+
+- __Analysis Version__: 3.0
+
+
+>code –> Universal
+Error:
+Could not find source dataset file "PROMPT_FOR_FILE" (resolved to '/Users/sloan_lab/Documents/labbies/Alissa/hyphy_acc/Foreground')
+Path stack:
+	/Users/sloan_lab/opt/anaconda3/lib/hyphy/
+	/Users/sloan_lab/opt/anaconda3/lib/hyphy/TemplateBatchFiles/SelectionAnalyses/
+
+Function call stack
+1 :  [namespace = xkakpnBl] DataSet ^dataset_name = ReadDataFile(PROMPT_FOR_FILE);
+
+	Keyword arguments:
+		{
+		 "tree":"/Users/sloan_lab/Documents/labbies/Alissa/hyphy_acc/ACCase_constraint_final_foreback_fixedagain_hyphy.nwk"
+		}
+-------
+2 :  [namespace = RLBHGCBB] code_info=alignments.LoadGeneticCode(None);
+-------
+3 :  [namespace = hndDXCvY] return alignments.ReadCodonDataSetFromPath(dataset_name,None);
+-------
+4 :  return alignments.LoadCodonDataFile(dataset_name,datafilter_name,alignments.ReadCodonDataSet(dataset_name));
+-------
+5 :  [namespace = busted] codon_data_info=alignments.PromptForGeneticCodeAndAlignment(prefix+".codon_data",prefix+".codon_filter");
+-------
+6 :  [namespace = busted] load_file("busted");
+-------
+7 :  namespace 
+
+Step 0.LoadFunctionLibrary("modules/shared-load-file.bf", /Users/sloan_lab/opt/anaconda3/lib/hyphy/TemplateBatchFiles/SelectionAnalyses/);
+
+Step 1.load_file("busted");;
+-------
+
+Check errors.log for execution error details.
+bash-3.2$ hyphy busted --alignment aligned_ACCase_minimal.fas --tree ACCase_constraint_final_foreback_fixedagain_hyphy.nwk --branches Foreground
+
+Analysis Description
+--------------------
+BUSTED (branch-site unrestricted statistical test of episodic
+diversification) uses a random effects branch-site model fitted jointly
+to all or a subset of tree branches in order to test for alignment-wide
+evidence of episodic diversifying selection. Assuming there is evidence
+of positive selection (i.e. there is an omega > 1), BUSTED will also
+perform a quick evidence-ratio style analysis to explore which
+individual sites may have been subject to selection. v2.0 adds support
+for synonymous rate variation, and relaxes the test statistic to 0.5
+(chi^2_0 + chi^2_2). Version 2.1 adds a grid search for the initial
+starting point. Version 2.2 changes the grid search to LHC, and adds an
+initial search phase to use adaptive Nedler-Mead. Version 3.0 implements
+the option for branch-site variation in synonymous substitution rates 
+
+- __Requirements__: in-frame codon alignment and a phylogenetic tree (optionally annotated
+with {})
+
+- __Citation__: *Gene-wide identification of episodic selection*, Mol Biol Evol.
+32(5):1365-71
+
+- __Written by__: Sergei L Kosakovsky Pond
+
+- __Contact Information__: spond@temple.edu
+
+- __Analysis Version__: 3.0
+
+
+>code –> Universal
+
+>Loaded a multiple sequence alignment with **35** sequences, **2246** codons, and **1** partitions from `/Users/sloan_lab/Documents/labbies/Alissa/hyphy_acc/aligned_ACCase_minimal.fas`
+
+>branches –> Foreground
+
+>srv –> Yes
+The number omega rate classes to include in the model (permissible range = [1,10], default value = 3, integer): 
+>rates –> 3
+The number omega rate classes to include in the model (permissible range = [1,10], default value = 3, integer): 
+>syn-rates –> 3
+The number of points in the initial distributional guess for likelihood fitting (permissible range = [1,10000], default value = 250, integer): 
+>grid-size –> 250
+The number of initial random guesses to 'seed' rate values optimization (permissible range = [1,25], default value = 1, integer): 
+>starting-points –> 1
+
+
+### Branches to test for selection in the BUSTED analysis
+* Selected 30 branches to test in the BUSTED analysis: `Oryza_sativa_ACC2, Triticum_aestivum_ACC2, Aegilops_tauschii_ACC2, Node15, Node13, Sorghum_bicolor_ACC2, Zea_mays_ACC2, Node18, Node12, Agrostemma_githago_ACC2, Silene_noctiflora_ACC2, Silene_paradoxa_ACC2, Node30, Node28, Capsella_rubella_ACC2, Arabidopsis_thaliana_ACC2, Node38, Pelargonium_cotyledonis_ACC2, Monsonia_emarginata_ACC2, California_macrophylla_ACC2, Erodium_texanum_ACC2, Node60, Geranium_maderense_ACC2, Geranium_phaeum_ACC2, Geranium_incanum_ACC2, Node65, Node63, Node59, Node57, Node55`
+
+
+### Obtaining branch lengths and nucleotide substitution biases under the nucleotide GTR model
+* Log(L) = -91517.76, AIC-c = 183185.57 (75 estimated parameters)
+
+### Obtaining the global omega estimate based on relative GTR branch lengths and nucleotide substitution biases
+* Log(L) = -84001.51, AIC-c = 168169.19 (83 estimated parameters)
+* non-synonymous/synonymous rate ratio for *background* =   0.1305
+* non-synonymous/synonymous rate ratio for *test* =   0.1905
+
+### Improving branch lengths, nucleotide substitution biases, and global dN/dS ratios under a full codon model
+* Log(L) = -83498.07, AIC-c = 167162.31 (83 estimated parameters)
+* non-synonymous/synonymous rate ratio for *background* =   0.0973
+* non-synonymous/synonymous rate ratio for *test* =   0.2072
+
+### Performing the full (dN/dS > 1 allowed) branch-site model fit
+* Log(L) = -82344.40, AIC-c = 164881.04 (96 estimated parameters)
+* For *test* branches, the following rate distribution for branch-site combinations was inferred
+
+|          Selection mode           |     dN/dS     |Proportion, %|               Notes               |
+|-----------------------------------|---------------|-------------|-----------------------------------|
+|        Negative selection         |     0.112     |   89.581    |                                   |
+|         Neutral evolution         |     1.000     |   10.301    |                                   |
+|      Diversifying selection       |    20.916     |    0.118    |                                   |
+
+* For *background* branches, the following rate distribution for branch-site combinations was inferred
+
+|          Selection mode           |     dN/dS     |Proportion, %|               Notes               |
+|-----------------------------------|---------------|-------------|-----------------------------------|
+|        Negative selection         |     0.042     |   91.387    |                                   |
+|        Negative selection         |     0.606     |    8.562    |                                   |
+|      Diversifying selection       |   10000.000   |    0.051    |                                   |
+
+* The following rate distribution for site-to-site **synonymous** rate variation was inferred
+
+|               Rate                | Proportion, % |               Notes               |
+|-----------------------------------|---------------|-----------------------------------|
+|               0.540               |    55.339     |                                   |
+|               1.343               |    41.244     |                                   |
+|               4.311               |     3.416     |                                   |
+
+
+### Performing the constrained (dN/dS > 1 not allowed) model fit
+* Log(L) = -82349.65, AIC-c = 164889.52 (95 estimated parameters)
+* For *test* branches under the null (no dN/dS > 1 model), the following rate distribution for branch-site combinations was inferred
+
+|          Selection mode           |     dN/dS     |Proportion, %|               Notes               |
+|-----------------------------------|---------------|-------------|-----------------------------------|
+|        Negative selection         |     0.098     |   87.442    |                                   |
+|         Neutral evolution         |     1.000     |    0.960    |                                   |
+|         Neutral evolution         |     1.000     |   11.598    |       Collapsed rate class        |
+
+* The following rate distribution for site-to-site **synonymous** rate variation was inferred
+
+|               Rate                | Proportion, % |               Notes               |
+|-----------------------------------|---------------|-----------------------------------|
+|               0.541               |    55.747     |                                   |
+|               1.354               |    40.916     |                                   |
+|               4.330               |     3.337     |                                   |
+
+----
+## Branch-site unrestricted statistical test of episodic diversification [BUSTED]
+Likelihood ratio test for episodic diversifying positive selection, **p =   0.0026**.

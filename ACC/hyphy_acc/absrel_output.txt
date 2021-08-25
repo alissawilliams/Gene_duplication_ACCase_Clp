@@ -1,0 +1,237 @@
+
+Analysis Description
+--------------------
+aBSREL (Adaptive branch-site random effects likelihood) uses an adaptive
+random effects branch-site model framework to test whether each branch
+has evolved under positive selection, using a procedure which infers an
+optimal number of rate categories per branch.
+
+- __Requirements__: in-frame codon alignment and a phylogenetic tree
+
+- __Citation__: Less Is More: An Adaptive Branch-Site Random Effects Model for Efficient
+Detection of Episodic Diversifying Selection (2015). Mol Biol Evol 32
+(5): 1342-1353
+
+- __Written by__: Sergei L Kosakovsky Pond, Ben Murrell, Steven Weaver and Temple iGEM /
+UCSD viral evolution group
+
+- __Contact Information__: spond@temple.edu
+
+- __Analysis Version__: 2.1
+
+
+>code –> Universal
+
+>Loaded a multiple sequence alignment with **35** sequences, **2246** codons, and **1** partitions from `/Users/sloan_lab/Documents/labbies/Alissa/hyphy_acc/aligned_ACCase_minimal.fas`
+
+>branches –> Foreground
+
+
+### * Selected 30 branches for testing: `Oryza_sativa_ACC2, Triticum_aestivum_ACC2, Aegilops_tauschii_ACC2, Node15, Node13, Sorghum_bicolor_ACC2, Zea_mays_ACC2, Node18, Node12, Agrostemma_githago_ACC2, Silene_noctiflora_ACC2, Silene_paradoxa_ACC2, Node30, Node28, Capsella_rubella_ACC2, Arabidopsis_thaliana_ACC2, Node38, Pelargonium_cotyledonis_ACC2, Monsonia_emarginata_ACC2, California_macrophylla_ACC2, Erodium_texanum_ACC2, Node60, Geranium_maderense_ACC2, Geranium_phaeum_ACC2, Geranium_incanum_ACC2, Node65, Node63, Node59, Node57, Node55`
+
+
+### Obtaining branch lengths and nucleotide substitution biases under the nucleotide GTR model
+* Log(L) = -91517.76, AIC-c = 183185.57 (75 estimated parameters)
+
+### Fitting the baseline model with a single dN/dS class per branch, and no site-to-site variation. 
+* Log(L) = -83581.92, AIC-c = 167460.41 (148 estimated parameters)
+* Branch-level non-synonymous/synonymous rate ratio distribution has median  0.16, and 95% of the weight in  0.05 -  0.73
+
+### Determining the optimal number of rate classes per branch using a step up procedure
+
+|              Branch               |  Length  |  Rates   |     Max. dN/dS     |    Log(L)     |     AIC-c     |Best AIC-c so far|
+|-----------------------------------|----------|----------|--------------------|---------------|---------------|-----------------|
+|              Node34               |   0.32   |    2     |    1.70 ( 6.49%)   |   -83515.53   |   167331.64   |    167331.64    |
+|              Node34               |   0.32   |    3     |    1.76 ( 6.30%)   |   -83515.52   |   167335.64   |    167331.64    |
+|     Amborella_trichopoda_ACC1     |   0.28   |    2     |    0.64 (19.20%)   |   -83473.10   |   167250.79   |    167250.79    |
+|     Amborella_trichopoda_ACC1     |   0.28   |    3     |  193.92 ( 1.67%)   |   -83470.45   |   167249.52   |    167249.52    |
+|     Amborella_trichopoda_ACC1     |   0.28   |    4     |  421.73 ( 1.68%)   |   -83470.45   |   167253.53   |    167249.52    |
+|               Node2               |   0.19   |    2     |    4.13 ( 6.84%)   |   -83397.75   |   167108.13   |    167108.13    |
+|               Node2               |   0.19   |    3     |    5.33 ( 5.28%)   |   -83397.68   |   167112.00   |    167108.13    |
+|              Node22               |   0.15   |    2     |    7.97 ( 2.23%)   |   -83371.88   |   167060.41   |    167060.41    |
+|              Node22               |   0.15   |    3     |   20.71 ( 1.43%)   |   -83371.34   |   167063.33   |    167060.41    |
+|              Node28               |   0.15   |    2     |    5.90 ( 4.63%)   |   -83342.04   |   167004.73   |    167004.73    |
+|              Node28               |   0.15   |    3     |   >1000 ( 1.63%)   |   -83340.58   |   167005.84   |    167004.73    |
+|              Node12               |   0.12   |    2     |    2.25 (16.63%)   |   -83320.91   |   166966.49   |    166966.49    |
+|              Node12               |   0.12   |    3     |   24.07 ( 1.23%)   |   -83319.93   |   166968.55   |    166966.49    |
+|              Node21               |   0.12   |    2     |   62.28 ( 2.32%)   |   -83290.97   |   166910.63   |    166910.63    |
+|              Node21               |   0.12   |    3     |   63.83 ( 2.32%)   |   -83290.97   |   166914.65   |    166910.63    |
+|               Node3               |   0.12   |    2     |   21.32 ( 2.92%)   |   -83256.09   |   166844.88   |    166844.88    |
+|               Node3               |   0.12   |    3     |   21.48 ( 2.90%)   |   -83256.09   |   166848.90   |    166844.88    |
+|     Monsonia_emarginata_ACC2      |   0.10   |    2     |    1.20 (32.09%)   |   -83239.91   |   166816.54   |    166816.54    |
+|     Monsonia_emarginata_ACC2      |   0.10   |    3     |    1.33 (16.79%)   |   -83239.92   |   166820.59   |    166816.54    |
+|              Node41               |   0.10   |    2     |    0.94 (14.18%)   |   -83229.14   |   166799.03   |    166799.03    |
+|              Node41               |   0.10   |    3     |    1.18 ( 0.43%)   |   -83229.14   |   166803.04   |    166799.03    |
+|              Node23               |   0.09   |    2     |   >1000 ( 1.46%)   |   -83204.70   |   166754.16   |    166754.16    |
+|              Node23               |   0.09   |    3     |  810.54 ( 1.46%)   |   -83204.70   |   166758.18   |    166754.16    |
+|               Node6               |   0.09   |    2     |   15.34 ( 1.42%)   |   -83183.44   |   166715.67   |    166715.67    |
+|               Node6               |   0.09   |    3     |   16.75 ( 1.33%)   |   -83183.43   |   166719.66   |    166715.67    |
+|         Oryza_sativa_ACC2         |   0.09   |    2     |    1.79 (10.41%)   |   -83156.76   |   166666.32   |    166666.32    |
+|         Oryza_sativa_ACC2         |   0.09   |    3     |   24.90 ( 0.62%)   |   -83155.85   |   166668.51   |    166666.32    |
+|      Agrostemma_githago_ACC1      |   0.09   |    2     |    2.71 ( 1.57%)   |   -83146.27   |   166649.35   |    166649.35    |
+|      Agrostemma_githago_ACC1      |   0.09   |    3     |    4.17 ( 0.95%)   |   -83146.19   |   166653.21   |    166649.35    |
+|              Node15               |   0.09   |    2     |    9.34 ( 2.11%)   |   -83120.15   |   166601.13   |    166601.13    |
+|              Node15               |   0.09   |    3     |   10.67 ( 1.89%)   |   -83120.11   |   166605.07   |    166601.13    |
+|   Pelargonium_cotyledonis_ACC2    |   0.08   |    2     |    0.97 (25.78%)   |   -83108.61   |   166582.06   |    166582.06    |
+|   Pelargonium_cotyledonis_ACC2    |   0.08   |    3     |    0.97 (24.81%)   |   -83108.61   |   166586.08   |    166582.06    |
+|              Node18               |   0.08   |    2     |   12.52 ( 1.68%)   |   -83085.25   |   166539.37   |    166539.37    |
+|              Node18               |   0.08   |    3     |   13.01 ( 1.62%)   |   -83085.24   |   166543.37   |    166539.37    |
+|         Oryza_sativa_ACC1         |   0.07   |    2     |    0.70 (18.89%)   |   -83079.09   |   166531.06   |    166531.06    |
+|         Oryza_sativa_ACC1         |   0.07   |    3     |   >1000 ( 0.30%)   |   -83077.42   |   166531.76   |    166531.06    |
+|     Monsonia_emarginata_ACC1      |   0.07   |    2     |   12.46 ( 1.56%)   |   -83059.24   |   166495.40   |    166495.40    |
+|     Monsonia_emarginata_ACC1      |   0.07   |    3     |   14.39 ( 1.40%)   |   -83059.22   |   166499.36   |    166495.40    |
+|               Node9               |   0.07   |    2     |    1.14 ( 8.96%)   |   -83051.08   |   166483.09   |    166483.09    |
+|               Node9               |   0.07   |    3     |    1.42 ( 3.50%)   |   -83051.09   |   166487.13   |    166483.09    |
+|      Agrostemma_githago_ACC2      |   0.07   |    2     |    0.55 (28.08%)   |   -83049.95   |   166484.84   |    166483.09    |
+|       Capsella_rubella_ACC2       |   0.06   |    2     |    0.87 (25.69%)   |   -83047.67   |   166480.28   |    166480.28    |
+|       Capsella_rubella_ACC2       |   0.06   |    3     |    0.87 (25.10%)   |   -83047.66   |   166484.29   |    166480.28    |
+|   Pelargonium_cotyledonis_ACC1    |   0.06   |    2     |    0.53 (26.33%)   |   -83045.48   |   166479.93   |    166479.93    |
+|   Pelargonium_cotyledonis_ACC1    |   0.06   |    3     |    0.60 ( 0.64%)   |   -83045.48   |   166483.95   |    166479.93    |
+|       Erodium_texanum_ACC1        |   0.06   |    2     |    0.26 (22.33%)   |   -83044.69   |   166482.36   |    166479.93    |
+|      Geranium_maderense_ACC2      |   0.05   |    2     |   89.68 ( 0.69%)   |   -83030.00   |   166452.98   |    166452.98    |
+|      Geranium_maderense_ACC2      |   0.05   |    3     |   90.48 ( 0.68%)   |   -83030.00   |   166457.00   |    166452.98    |
+|       Erodium_texanum_ACC2        |   0.05   |    2     |    1.82 (12.88%)   |   -83019.78   |   166436.57   |    166436.57    |
+|       Erodium_texanum_ACC2        |   0.05   |    3     |    2.10 ( 8.44%)   |   -83019.81   |   166440.64   |    166436.57    |
+|     Arabidopsis_thaliana_ACC2     |   0.05   |    2     |   66.09 ( 0.48%)   |   -83009.63   |   166420.28   |    166420.28    |
+|     Arabidopsis_thaliana_ACC2     |   0.05   |    3     |   66.06 ( 0.47%)   |   -83009.63   |   166424.30   |    166420.28    |
+|      Geranium_maderense_ACC1      |   0.04   |    2     |    1.03 ( 9.65%)   |   -83004.80   |   166414.64   |    166414.64    |
+|      Geranium_maderense_ACC1      |   0.04   |    3     |    1.50 ( 2.39%)   |   -83004.79   |   166418.65   |    166414.64    |
+|       Capsella_rubella_ACC1       |   0.04   |    2     |    0.68 ( 9.86%)   |   -83003.39   |   166415.84   |    166414.64    |
+|    California_macrophylla_ACC2    |   0.04   |    2     |   63.84 ( 0.66%)   |   -82991.73   |   166392.53   |    166392.53    |
+|    California_macrophylla_ACC2    |   0.04   |    3     |   70.50 ( 0.61%)   |   -82991.71   |   166396.52   |    166392.53    |
+|              Node30               |   0.04   |    2     |    1.27 (16.05%)   |   -82989.92   |   166392.92   |    166392.53    |
+|    California_macrophylla_ACC1    |   0.03   |    2     |    0.57 (23.79%)   |   -82990.91   |   166394.91   |    166392.53    |
+|       Geranium_incanum_ACC1       |   0.03   |    2     |    1.10 ( 4.40%)   |   -82989.28   |   166391.64   |    166391.64    |
+|       Geranium_incanum_ACC1       |   0.03   |    3     |  449.83 ( 0.08%)   |   -82986.56   |   166390.23   |    166390.23    |
+|       Geranium_incanum_ACC1       |   0.03   |    4     |  481.92 ( 0.08%)   |   -82986.56   |   166394.25   |    166390.23    |
+|              Node65               |   0.03   |    2     |    3.34 ( 8.92%)   |   -82976.17   |   166373.47   |    166373.47    |
+|              Node65               |   0.03   |    3     |    3.42 ( 8.76%)   |   -82976.17   |   166377.49   |    166373.47    |
+|     Arabidopsis_thaliana_ACC1     |   0.03   |    2     |    0.10 (78.46%)   |   -82976.17   |   166377.49   |    166373.47    |
+|              Node63               |   0.03   |    2     |   36.01 ( 0.91%)   |   -82968.13   |   166361.41   |    166361.41    |
+|              Node63               |   0.03   |    3     |   >1000 ( 0.43%)   |   -82967.69   |   166364.56   |    166361.41    |
+|              Node46               |   0.03   |    2     |    4.40 ( 2.53%)   |   -82956.56   |   166342.30   |    166342.30    |
+|              Node46               |   0.03   |    3     |    5.35 ( 1.82%)   |   -82956.56   |   166346.33   |    166342.30    |
+|           Zea_mays_ACC2           |   0.03   |    2     |    0.19 (95.88%)   |   -82956.56   |   166346.32   |    166342.30    |
+|              Node50               |   0.03   |    2     |  499.57 ( 0.21%)   |   -82949.23   |   166331.67   |    166331.67    |
+|              Node50               |   0.03   |    3     |  481.04 ( 0.20%)   |   -82949.23   |   166335.68   |    166331.67    |
+|              Node25               |   0.03   |    2     |    1.95 ( 9.61%)   |   -82946.06   |   166329.34   |    166329.34    |
+|              Node25               |   0.03   |    3     |    2.13 ( 6.74%)   |   -82946.08   |   166333.40   |    166329.34    |
+|       Geranium_phaeum_ACC2        |   0.02   |    2     |    1.60 ( 9.66%)   |   -82944.38   |   166330.00   |    166329.34    |
+|              Node59               |   0.02   |    2     |    2.44 (21.16%)   |   -82944.22   |   166329.68   |    166329.34    |
+|           Zea_mays_ACC1           |   0.02   |    2     |    0.22 ( 0.00%)   |   -82946.05   |   166333.34   |    166329.34    |
+|       Geranium_phaeum_ACC1        |   0.02   |    2     |    1.82 ( 8.10%)   |   -82942.55   |   166326.35   |    166326.35    |
+|       Geranium_phaeum_ACC1        |   0.02   |    3     |    2.09 ( 5.63%)   |   -82942.56   |   166330.37   |    166326.35    |
+|              Node35               |   0.02   |    2     |    0.77 (19.70%)   |   -82941.90   |   166329.06   |    166326.35    |
+|              Node52               |   0.02   |    2     |    0.10 ( 8.44%)   |   -82942.56   |   166330.37   |    166326.35    |
+|              Node57               |   0.02   |    2     |   10.84 ( 1.92%)   |   -82937.51   |   166320.29   |    166320.29    |
+|              Node57               |   0.02   |    3     |    8.60 ( 2.61%)   |   -82937.48   |   166324.25   |    166320.29    |
+|              Node60               |   0.02   |    2     |   29.25 ( 0.45%)   |   -82934.22   |   166317.73   |    166317.73    |
+|              Node60               |   0.02   |    3     |   44.00 ( 0.31%)   |   -82934.14   |   166321.59   |    166317.73    |
+|       Geranium_incanum_ACC2       |   0.02   |    2     |    0.13 (30.51%)   |   -82934.23   |   166321.76   |    166317.73    |
+|       Silene_paradoxa_ACC1        |   0.02   |    2     |    0.15 (71.94%)   |   -82934.22   |   166321.75   |    166317.73    |
+|       Sorghum_bicolor_ACC2        |   0.02   |    2     |    4.63 ( 5.68%)   |   -82927.38   |   166308.07   |    166308.07    |
+|       Sorghum_bicolor_ACC2        |   0.02   |    3     |   54.66 ( 0.35%)   |   -82926.69   |   166310.71   |    166308.07    |
+|      Silene_noctiflora_ACC2       |   0.02   |    2     |    0.63 (22.02%)   |   -82927.39   |   166312.10   |    166308.07    |
+|              Node38               |   0.02   |    2     |   44.36 ( 0.30%)   |   -82921.67   |   166300.68   |    166300.68    |
+|              Node38               |   0.02   |    3     |   46.55 ( 0.29%)   |   -82921.67   |   166304.69   |    166300.68    |
+|       Silene_paradoxa_ACC2        |   0.02   |    2     |    0.32 ( 3.32%)   |   -82921.67   |   166304.70   |    166300.68    |
+|      Silene_noctiflora_ACC1       |   0.01   |    2     |    0.14 (15.82%)   |   -82921.67   |   166304.69   |    166300.68    |
+|       Sorghum_bicolor_ACC1        |   0.01   |    2     |    0.19 (90.62%)   |   -82921.65   |   166304.66   |    166300.68    |
+|              Node33               |   0.01   |    2     |  698.37 ( 0.42%)   |   -82918.43   |   166298.21   |    166298.21    |
+|              Node33               |   0.01   |    3     |  697.98 ( 0.37%)   |   -82918.40   |   166302.18   |    166298.21    |
+|               Node4               |   0.01   |    2     |    0.29 (15.28%)   |   -82918.43   |   166302.23   |    166298.21    |
+|              Node44               |   0.01   |    2     |    0.19 (17.88%)   |   -82918.43   |   166302.24   |    166298.21    |
+|              Node42               |   0.01   |    2     |    0.24 (54.27%)   |   -82918.14   |   166301.65   |    166298.21    |
+|              Node13               |   0.01   |    2     |    0.75 (25.12%)   |   -82918.41   |   166302.19   |    166298.21    |
+|      Triticum_aestivum_ACC1       |   0.00   |    2     |   >1000 ( 0.55%)   |   -82845.59   |   166156.57   |    166156.57    |
+|      Triticum_aestivum_ACC1       |   0.00   |    3     |   >1000 ( 0.55%)   |   -82845.77   |   166160.95   |    166156.57    |
+|              Node47               |   0.00   |    2     |   25.95 ( 1.62%)   |   -82843.79   |   166156.99   |    166156.57    |
+|              Node55               |   0.00   |    2     |   39.40 ( 1.86%)   |   -82845.08   |   166159.56   |    166156.57    |
+|      Triticum_aestivum_ACC2       |   0.00   |    2     |    0.46 (10.00%)   |   -82845.60   |   166160.60   |    166156.57    |
+|      Aegilops_tauschii_ACC2       |   0.00   |    2     |    0.62 (24.44%)   |   -82845.60   |   166160.61   |    166156.57    |
+|      Aegilops_tauschii_ACC1       |   0.00   |    2     |  22.92 (100.00%)   |   -82844.94   |   166159.29   |    166156.57    |
+
+### Rate class analyses summary
+*  38 branches with **2** rate classes
+*  2 branches with **3** rate classes
+*  27 branches with **1** rate classes
+
+### Improving parameter estimates of the adaptive rate class model
+* Log(L) = -82631.75, AIC-c = 165728.87 (232 estimated parameters)
+
+### Testing selected branches for selection
+
+|              Branch               |  Rates   |     Max. dN/dS     |      Test LRT      |Uncorrected p-value |
+|-----------------------------------|----------|--------------------|--------------------|--------------------|
+|              Node34               |     2    |    1.16 ( 7.43%)   |    Not selected    |    for testing     |
+|     Amborella_trichopoda_ACC1     |     3    |  210.39 ( 0.77%)   |    Not selected    |    for testing     |
+|               Node2               |     2    |    1.87 ( 8.16%)   |    Not selected    |    for testing     |
+|              Node22               |     2    |    4.25 ( 1.79%)   |    Not selected    |    for testing     |
+|              Node28               |     2    |    2.30 ( 8.68%)   |        0.78        |       0.27887      |
+|              Node12               |     2    |    1.26 (30.21%)   |        0.33        |       0.36796      |
+|              Node21               |     2    |   70.17 ( 2.21%)   |    Not selected    |    for testing     |
+|               Node3               |     2    |    5.09 ( 3.90%)   |    Not selected    |    for testing     |
+|     Monsonia_emarginata_ACC2      |     2    |    1.06 (33.13%)   |        0.29        |       0.37691      |
+|              Node41               |     2    |    0.83 (13.49%)   |    Not selected    |    for testing     |
+|              Node23               |     2    |   44.01 ( 1.32%)   |    Not selected    |    for testing     |
+|               Node6               |     2    |    8.30 ( 1.46%)   |    Not selected    |    for testing     |
+|         Oryza_sativa_ACC2         |     2    |    1.55 (10.21%)   |        0.64        |       0.30195      |
+|      Agrostemma_githago_ACC1      |     2    |    2.32 ( 1.46%)   |    Not selected    |    for testing     |
+|              Node15               |     2    |    4.66 ( 2.99%)   |        2.56        |       0.10550      |
+|   Pelargonium_cotyledonis_ACC2    |     2    |    0.86 (26.39%)   |        0.00        |       1.00000      |
+|              Node18               |     2    |    7.07 ( 1.77%)   |        3.92        |       0.05174      |
+|         Oryza_sativa_ACC1         |     2    |    0.64 (15.66%)   |    Not selected    |    for testing     |
+|     Monsonia_emarginata_ACC1      |     2    |    6.80 ( 1.91%)   |    Not selected    |    for testing     |
+|               Node9               |     2    |    1.00 ( 9.21%)   |    Not selected    |    for testing     |
+|      Agrostemma_githago_ACC2      |     1    |   0.15 (100.00%)   |        0.00        |       1.00000      |
+|       Capsella_rubella_ACC2       |     2    |    0.74 (26.18%)   |        0.00        |       1.00000      |
+|   Pelargonium_cotyledonis_ACC1    |     2    |    0.50 (24.98%)   |    Not selected    |    for testing     |
+|       Erodium_texanum_ACC1        |     1    |   0.05 (100.00%)   |    Not selected    |    for testing     |
+|      Geranium_maderense_ACC2      |     2    |   74.17 ( 0.59%)   |       10.29        |       0.00201      |
+|       Erodium_texanum_ACC2        |     2    |    1.63 (13.11%)   |        1.77        |       0.16027      |
+|     Arabidopsis_thaliana_ACC2     |     2    |   56.95 ( 0.41%)   |        8.16        |       0.00592      |
+|      Geranium_maderense_ACC1      |     2    |    0.92 ( 9.78%)   |    Not selected    |    for testing     |
+|       Capsella_rubella_ACC1       |     1    |   0.06 (100.00%)   |    Not selected    |    for testing     |
+|    California_macrophylla_ACC2    |     2    |   48.56 ( 0.55%)   |        8.41        |       0.00523      |
+|              Node30               |     1    |   0.16 (100.00%)   |        0.00        |       1.00000      |
+|    California_macrophylla_ACC1    |     1    |   0.12 (100.00%)   |    Not selected    |    for testing     |
+|       Geranium_incanum_ACC1       |     3    |   >1000 ( 0.07%)   |    Not selected    |    for testing     |
+|              Node65               |     2    |    2.71 ( 9.80%)   |        4.81        |       0.03270      |
+|     Arabidopsis_thaliana_ACC1     |     1    |   0.09 (100.00%)   |    Not selected    |    for testing     |
+|              Node63               |     2    |   >1000 ( 0.40%)   |       11.32        |       0.00120      |
+|              Node46               |     2    |    3.98 ( 2.46%)   |    Not selected    |    for testing     |
+|           Zea_mays_ACC2           |     1    |   0.18 (100.00%)   |        0.00        |       1.00000      |
+|              Node50               |     2    |  332.76 ( 0.18%)   |    Not selected    |    for testing     |
+|              Node25               |     2    |    1.82 ( 9.43%)   |    Not selected    |    for testing     |
+|       Geranium_phaeum_ACC2        |     1    |   0.13 (100.00%)   |        0.00        |       1.00000      |
+|              Node59               |     1    |   0.43 (100.00%)   |        0.00        |       1.00000      |
+|           Zea_mays_ACC1           |     1    |   0.17 (100.00%)   |    Not selected    |    for testing     |
+|       Geranium_phaeum_ACC1        |     2    |    1.67 ( 8.08%)   |    Not selected    |    for testing     |
+|              Node35               |     1    |   0.14 (100.00%)   |    Not selected    |    for testing     |
+|              Node52               |     1    |   0.05 (100.00%)   |    Not selected    |    for testing     |
+|              Node57               |     2    |    3.54 ( 9.09%)   |        3.61        |       0.06098      |
+|              Node60               |     2    |   16.06 ( 0.56%)   |        1.31        |       0.20574      |
+|       Geranium_incanum_ACC2       |     1    |   0.09 (100.00%)   |        0.00        |       1.00000      |
+|       Silene_paradoxa_ACC1        |     1    |   0.12 (100.00%)   |    Not selected    |    for testing     |
+|       Sorghum_bicolor_ACC2        |     2    |    3.92 ( 5.71%)   |        4.02        |       0.04929      |
+|      Silene_noctiflora_ACC2       |     1    |   0.15 (100.00%)   |        0.00        |       1.00000      |
+|              Node38               |     2    |   37.86 ( 0.27%)   |        5.79        |       0.01979      |
+|       Silene_paradoxa_ACC2        |     1    |   0.21 (100.00%)   |        0.00        |       1.00000      |
+|      Silene_noctiflora_ACC1       |     1    |   0.09 (100.00%)   |    Not selected    |    for testing     |
+|       Sorghum_bicolor_ACC1        |     1    |   0.17 (100.00%)   |    Not selected    |    for testing     |
+|              Node33               |     2    |  670.13 ( 0.39%)   |    Not selected    |    for testing     |
+|               Node4               |     1    |   0.08 (100.00%)   |    Not selected    |    for testing     |
+|              Node44               |     1    |   0.06 (100.00%)   |    Not selected    |    for testing     |
+|              Node42               |     1    |   0.14 (100.00%)   |    Not selected    |    for testing     |
+|              Node13               |     1    |   0.14 (100.00%)   |        0.00        |       1.00000      |
+|      Triticum_aestivum_ACC1       |     2    |   >1000 ( 0.49%)   |    Not selected    |    for testing     |
+|              Node47               |     1    |   0.31 (100.00%)   |    Not selected    |    for testing     |
+|              Node55               |     1    |   0.44 (100.00%)   |        0.00        |       1.00000      |
+|      Triticum_aestivum_ACC2       |     1    |   0.04 (100.00%)   |        0.00        |       1.00000      |
+|      Aegilops_tauschii_ACC2       |     1    |   0.14 (100.00%)   |        0.00        |       1.00000      |
+|      Aegilops_tauschii_ACC1       |     1    |  >1000 (100.00%)   |    Not selected    |    for testing     |
+----
+### Adaptive branch site random effects likelihood test 
+Likelihood ratio test for episodic diversifying positive selection at Holm-Bonferroni corrected _p =   0.0500_ found **1** branches under selection among **30** tested.
+
+* Node63, p-value =  0.03596
